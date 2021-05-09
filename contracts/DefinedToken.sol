@@ -13,9 +13,10 @@ contract DefinedToken is ERC721Tradable {
     string private _baseTokenURI;
 
     constructor(string memory name, string memory symbol, string baseTokenURI, address proxyRegistryAddress)
-        setBaseTokenURI(baseTokenURI);
         ERC721Tradable(name, symbol, proxyRegistryAddress)
-    {}
+    {
+        setBaseTokenURI(baseTokenURI);
+    }
 
     /*
      * @dev Mints `tokenId` and safely transfers it to `to`.
@@ -31,7 +32,7 @@ contract DefinedToken is ERC721Tradable {
     /*
      * @dev Sets the value returned by baseTokenURI().
     */
-    func setBaseTokenURI(string baseTokenURI) public onlyOwner {
+    function setBaseTokenURI(string baseTokenURI) public onlyOwner {
         _baseTokenURI = baseTokenURI;
     }
 }
