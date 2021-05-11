@@ -31,10 +31,10 @@ abstract contract ERC721Tradable is ERC721Enumerable, Ownable {
         proxyRegistryAddress = _proxyRegistryAddress;
     }
 
-    function baseTokenURI() virtual public pure returns (string memory);
+    function baseTokenURI() virtual public view returns (string memory);
 
-    function tokenURI(uint256 _tokenId) override public pure returns (string memory) {
-        return string(abi.encodePacked(baseTokenURI(), Strings.toString(_tokenId)));
+    function tokenURI(uint256 _tokenId) override public view returns (string memory) {
+        return string(abi.encodePacked(baseTokenURI(), Strings.toHexString(_tokenId)));
     }
 
     /**

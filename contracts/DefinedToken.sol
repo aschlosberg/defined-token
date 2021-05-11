@@ -12,10 +12,10 @@ import "./ERC721Tradable.sol";
 contract DefinedToken is ERC721Tradable {
     string private _baseTokenURI;
 
-    constructor(string memory name, string memory symbol, string baseTokenURI, address proxyRegistryAddress)
+    constructor(string memory name, string memory symbol, string memory baseTokenURI_, address proxyRegistryAddress)
         ERC721Tradable(name, symbol, proxyRegistryAddress)
     {
-        setBaseTokenURI(baseTokenURI);
+        setBaseTokenURI(baseTokenURI_);
     }
 
     /*
@@ -32,7 +32,7 @@ contract DefinedToken is ERC721Tradable {
     /*
      * @dev Sets the value returned by baseTokenURI().
     */
-    function setBaseTokenURI(string baseTokenURI) public onlyOwner {
-        _baseTokenURI = baseTokenURI;
+    function setBaseTokenURI(string memory baseTokenURI_) public onlyOwner {
+        _baseTokenURI = baseTokenURI_;
     }
 }
